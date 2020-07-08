@@ -964,7 +964,41 @@ a.gnb_service_all:hover, a.gnb_service_all:visited, a.gnb_service_all:active, a.
 .u_helpdict_module.u_type_hanja .u_headword .u_btn_headword .u_origin_word {
 	display: none;
 }
-</style></head>
+</style>
+<meta charset="UTF-8">
+<script>
+var files = ["앙부일구.jpg", 
+             "물시계5.png",
+             "손목시계.jpg",
+             "괘종시계.jpg"];
+var imgs = new Array();
+for(var i=0; i<files.length; i++) {
+	imgs[i] = new Image(); // 이미지 객체 생성
+	imgs[i].src = files[i]; // 이미지 미리 로딩
+}
+
+var next = 1;
+function change(img) {
+	img.src = imgs[next].src; // 이미지 변경
+	next++; // 다음 이미지 인덱스
+	next %= imgs.length; // 개수를 넘으면 처음으로 
+}
+</script>
+<script>
+function findChecked() {
+	var found = null;
+	var kclock = document.getElementsByName("clock");
+	for(var i=0; i<kclock.length; i++) {
+		if(kclock[i].checked == true) 
+			found = kclock[i];
+	}
+	if(found != null) 
+		alert(found.value + "가 선택되었음");
+	else 
+		alert("선택된 것이 없음");		
+}
+</script>    
+</head>
 
 <body id="termBody" class="end">
 <script type="text/javascript">
@@ -1255,108 +1289,13 @@ a.gnb_service_all:hover, a.gnb_service_all:visited, a.gnb_service_all:active, a.
     var now = new Date();
     document.write("현재시간: " + now.toUTCString());
 </script>
-<script>
-function init(){
-  clock();
-  setInterval(clock,1000);
-}
-
-function clock(){
-  var now = new Date();
-  var ctx = document.getElementById('canvas').getContext('2d');
-  ctx.save();
-  ctx.clearRect(0,0,150,150);
-  ctx.translate(75,75);
-  ctx.scale(0.4,0.4);
-  ctx.rotate(-Math.PI/2);
-  ctx.strokeStyle = "black";
-  ctx.fillStyle = "white";
-  ctx.lineWidth = 8;
-  ctx.lineCap = "round";
-
-  // 시계판 - 시
-  ctx.save();
-  for (var i=0;i<12;i++){
-    ctx.beginPath();
-    ctx.rotate(Math.PI/6);
-    ctx.moveTo(100,0);
-    ctx.lineTo(120,0);
-    ctx.stroke();
-  }
-  ctx.restore();
-
-  // 시계판 - 분
-  ctx.save();
-  ctx.lineWidth = 5;
-  for (i=0;i<60;i++){
-    if (i%5!=0) {
-      ctx.beginPath();
-      ctx.moveTo(117,0);
-      ctx.lineTo(120,0);
-      ctx.stroke();
-    }
-    ctx.rotate(Math.PI/30);
-  }
-  ctx.restore();
-  
-  var sec = now.getSeconds();
-  var min = now.getMinutes();
-  var hr  = now.getHours();
-  hr = hr>=12 ? hr-12 : hr;
-
-  ctx.fillStyle = "black";
-
-  // 시간 표시 - 시
-  ctx.save();
-  ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec )
-  ctx.lineWidth = 14;
-  ctx.beginPath();
-  ctx.moveTo(-20,0);
-  ctx.lineTo(80,0);
-  ctx.stroke();
-  ctx.restore();
-
-  // 시간 표시 - 분
-  ctx.save();
-  ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec )
-  ctx.lineWidth = 10;
-  ctx.beginPath();
-  ctx.moveTo(-28,0);
-  ctx.lineTo(112,0);
-  ctx.stroke();
-  ctx.restore();
-  
-  // 시간 표시 - 초
-  ctx.save();
-  ctx.rotate(sec * Math.PI/30);
-  ctx.strokeStyle = "#D40000";
-  ctx.fillStyle = "#D40000";
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  ctx.moveTo(-30,0);
-  ctx.lineTo(83,0);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0,0,10,0,Math.PI*2,true);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.arc(95,0,10,0,Math.PI*2,true);
-  ctx.stroke();
-  ctx.fillStyle = "rgba(0,0,0,0)";
-  ctx.arc(0,0,3,0,Math.PI*2,true);
-  ctx.fill();
-  ctx.restore();
-
-  ctx.beginPath();
-  ctx.lineWidth = 14;
-  ctx.strokeStyle = '#325FA2';
-  ctx.arc(0,0,142,0,Math.PI*2,true);
-  ctx.stroke();
-
-  ctx.restore();
-}
-</script>
-
+<img src="앙부일구.jpg" alt="." width="200" height="200" onclick="change(this)">
+<form>
+    <input type="radio" name="clock" value="해시계" checked="">1. 해시계
+    <input type="radio" name="clock" value="물시계">2. 물시계
+    <input type="radio" name="clock" value="손목시계">3. 손목시계
+    <input type="radio" name="clock" value="괘종시계">4. 괘종시계
+    <input type="button" value="find checked" onclick="findChecked()">
 
 <div class="box_content">
 <h4><em class="pcate"><span>잘 알려지지 않은 이야기</span></em> 손목시계(Wristwatch)</h4>
@@ -1372,7 +1311,7 @@ function clock(){
 </div>
 
 
-			</div>
+			</form></div>
 
 				
 
