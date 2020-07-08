@@ -1284,18 +1284,21 @@ function findChecked() {
 	예를 들어, “해가 뜨는 곳에서부터 해가 지는 장소까지는 어떻게 갈까?”라는 의문을 품으며 밤과 낮의 움직임을 측정하고 싶어 했다. 
 	
 	‘시간(<span data-type="ore" data-lang="en">time</span>)’이나 ‘시간의 측정’같은 용어를 사용하지 않고 이런 질문에 답하기 위해 노력을 기울이는 것만으로도 이런 개념이 인간에게 얼마나 중요했는지를 알 수 있을 것이다.
-</p>
+</p><!--9.5, 7.4-->
+
 <p><script>
     var now = new Date();
     document.write("현재시간: " + now.toUTCString());
     </script></p>
-<p><img src="앙부일구.jpg" alt="." width="200" height="200" onclick="change(this)"></p>
+<p><img src="앙부일구.jpg" alt="." width="200" height="200" onclick="change(this)"></p><!--9.4, 9.6-->
+
 <form>          
     <input type="radio" name="clock" value="해시계" checked="">1. 해시계
     <input type="radio" name="clock" value="물시계">2. 물시계
     <input type="radio" name="clock" value="손목시계">3. 손목시계
     <input type="radio" name="clock" value="괘종시계">4. 괘종시계
-    <input type="button" value="find checked" onclick="findChecked()">
+    <input type="button" value="find checked" onclick="findChecked()"><!--10.3-->
+
 <p>
 <img id="img" src="손목시계.jpg" onmouseover="startTimer(5000)" onmouseout="cancelTimer()">
 <script>
@@ -1310,6 +1313,7 @@ function findChecked() {
         window.location = url; }
 </script>      
 </p>    
+<!--10.4-->
 <p><a href="javascript:window.print()">출력</a></p>
 <div class="box_content">
 <h4><em class="pcate"><span>잘 알려지지 않은 이야기</span></em> 손목시계(Wristwatch)</h4>
