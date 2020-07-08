@@ -1285,18 +1285,18 @@ function findChecked() {
 	
 	‘시간(<span data-type="ore" data-lang="en">time</span>)’이나 ‘시간의 측정’같은 용어를 사용하지 않고 이런 질문에 답하기 위해 노력을 기울이는 것만으로도 이런 개념이 인간에게 얼마나 중요했는지를 알 수 있을 것이다.
 </p>
-<script>
+<p><script>
     var now = new Date();
     document.write("현재시간: " + now.toUTCString());
-</script>
-<img src="앙부일구.jpg" alt="." width="200" height="200" onclick="change(this)">
-<form>
+    </script></p>
+<p><img src="앙부일구.jpg" alt="." width="200" height="200" onclick="change(this)"></p>
+<form>          
     <input type="radio" name="clock" value="해시계" checked="">1. 해시계
     <input type="radio" name="clock" value="물시계">2. 물시계
     <input type="radio" name="clock" value="손목시계">3. 손목시계
     <input type="radio" name="clock" value="괘종시계">4. 괘종시계
     <input type="button" value="find checked" onclick="findChecked()">
-<br>
+<p>
 <img id="img" src="손목시계.jpg" onmouseover="startTimer(5000)" onmouseout="cancelTimer()">
 <script>
     var timerID = null;
@@ -1309,7 +1309,7 @@ function findChecked() {
     function load(url) {
         window.location = url; }
 </script>    
-    
+</p>    
 <div class="box_content">
 <h4><em class="pcate"><span>잘 알려지지 않은 이야기</span></em> 손목시계(Wristwatch)</h4>
 <div class="  thmb fr" style="width:197px">
