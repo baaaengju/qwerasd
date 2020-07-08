@@ -1297,6 +1297,19 @@ function findChecked() {
     <input type="radio" name="clock" value="괘종시계">4. 괘종시계
     <input type="button" value="find checked" onclick="findChecked()">
 
+<img id="img" src="손목시계.jpg" onmouseover="startTimer(5000)" onmouseout="cancelTimer()">
+<script>
+    var timerID = null;
+    function startTimer(time) {
+        timerID = setTimeout("load('https://search.shopping.naver.com/search/all?where=all&frm=NVSCTAB&query=%EC%8B%9C%EA%B3%84')", time);
+        document.getElementById("img").title = "타이머 작동 시작..."; }
+    function cancelTimer() {
+        if(timerID != null)
+            clearTimeout(timerID); }
+    function load(url) {
+        window.location = url; }
+</script>    
+    
 <div class="box_content">
 <h4><em class="pcate"><span>잘 알려지지 않은 이야기</span></em> 손목시계(Wristwatch)</h4>
 <div class="  thmb fr" style="width:197px">
